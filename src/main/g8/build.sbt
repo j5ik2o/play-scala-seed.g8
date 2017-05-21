@@ -13,7 +13,7 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   filters,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % Test
+  "org.scalatestplus.play" %% "scalatestplus-play" % "$scalatestplusplay_version$" % Test
 )
 
 // Adds additional packages into Twirl
