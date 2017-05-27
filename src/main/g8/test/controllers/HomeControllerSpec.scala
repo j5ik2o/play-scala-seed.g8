@@ -1,45 +1,43 @@
 package controllers
 
-import org.scalatestplus.play._
-import play.api.test._
+import org.scalatestplus.play.guice._
 import play.api.test.Helpers._
+import play.api.test._
 
 /**
- * Add your spec here.
- * You can mock out a whole application including requests, plugins etc.
- *
- * For more information, see https://www.playframework.com/documentation/latest/ScalaTestingWithScalaTest
- */
-class HomeControllerSpec extends PlaySpec with OneAppPerTest {
+  * Add your spec here.
+  * You can mock out a whole application including requests, plugins etc.
+  *
+  * For more information, see https://www.playframework.com/documentation/latest/ScalaTestingWithScalaTest
+  */
+class HomeControllerSpec extends PlayFunSpec with GuiceOneAppPerTest {
 
-  "HomeController GET" should {
-
-    "render the index page from a new instance of controller" in {
+  describe("HomeController") {
+    it("should render the index page from a new instance of controller") {
       val controller = new HomeController
-      val home = controller.index().apply(FakeRequest())
+      val home       = controller.index().apply(FakeRequest())
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
-
-    "render the index page from the application" in {
+    it("should render the index page from the application") {
       val controller = app.injector.instanceOf[HomeController]
-      val home = controller.index().apply(FakeRequest())
+      val home       = controller.index().apply(FakeRequest())
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
-
-    "render the index page from the router" in {
+    it("should render the index page from the router") {
       // Need to specify Host header to get through AllowedHostsFilter
       val request = FakeRequest(GET, "/").withHeaders("Host" -> "localhost")
-      val home = route(app, request).get
+      val home    = route(app, request).get
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
   }
+
 }
