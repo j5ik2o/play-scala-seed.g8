@@ -39,7 +39,13 @@ libraryDependencies ++= Seq(
   cache,
   ws,
   filters,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "$scalatestplusplay_version$" % Test
+  "org.scalatestplus.play" %% "scalatestplus-play"           % "$scalatestplusplay_version$" % Test,
+  "org.scalatest"          %% "scalatest"                    % "3.0.1" % Test,
+  "org.scalikejdbc"        %% "scalikejdbc"                  % "2.5.2",
+  "org.scalikejdbc"        %% "scalikejdbc-config"           % "2.5.2",
+  "org.scalikejdbc"        %% "scalikejdbc-test"             % "2.5.2" % Test,
+  "org.skinny-framework"   %% "skinny-orm"                   % "2.3.7",
+  "org.scalikejdbc"        %% "scalikejdbc-play-initializer" % "2.5.+"
 )
 
 // Adds additional packages into Twirl
