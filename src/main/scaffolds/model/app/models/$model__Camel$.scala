@@ -17,7 +17,7 @@ object $model;format="Camel"$ extends SkinnyCRUDMapper[$model;format="Camel"$] {
 
   private def toNamedValues(record: $model;format="Camel"$): Seq[(Symbol, Any)] = ???
 
-  def insert($model;format="camel"$: $model;format="Camel"$)(implicit session: DBSession): Long =
+  def create($model;format="camel"$: $model;format="Camel"$)(implicit session: DBSession): Long =
     createWithAttributes(toNamedValues($model;format="camel"$): _*)
 
   def update($model;format="camel"$: $model;format="Camel"$)(implicit session: DBSession): Int =
