@@ -2,8 +2,8 @@ package controllers
 
 import org.scalatest._
 import org.scalatestplus.play.WsScalaTestClient
+import org.scalatestplus.play.guice.GuiceFakeApplicationFactory
 import play.api.i18n._
-import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.test.Helpers._
 import play.api.test._
 import play.filters.csrf.CSRF._
@@ -16,9 +16,9 @@ abstract class PlayFunSpec
     with MustMatchers
     with OptionValues
     with WsScalaTestClient
-    with I18nSupport {
+    with I18nSupport {  this: GuiceFakeApplicationFactory =>
 
-  lazy val injector = new GuiceApplicationBuilder().injector
+  lazy val injector = fakeApplication.injector
 
   def inject[T: ClassTag]: T = injector.instanceOf[T]
 
