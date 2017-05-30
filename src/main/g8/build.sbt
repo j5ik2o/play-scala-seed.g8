@@ -29,9 +29,7 @@ scalacOptions ++= Seq(
   // Warn when nullary methods return Unit.
   "-Ywarn-nullary-unit",
   // Warn when numerics are widened.
-  "-Ywarn-numeric-widen",
-  // Warn when local and private vals, vars, defs, and types are are unused.
-  "-Ywarn-unused"
+  "-Ywarn-numeric-widen"
 )
 
 libraryDependencies ++= Seq(
