@@ -30,8 +30,7 @@ class HomeControllerSpec extends PlayFunSpec with GuiceOneAppPerTest {
       contentAsString(home) must include("Welcome to Play")
     }
     it("should render the index page from the router") {
-      // Need to specify Host header to get through AllowedHostsFilter
-      val request = FakeRequest(GET, "/").withHeaders("Host" -> "localhost")
+      val request = FakeRequest(GET, "/")
       val home    = route(app, request).get
 
       status(home) mustBe OK
