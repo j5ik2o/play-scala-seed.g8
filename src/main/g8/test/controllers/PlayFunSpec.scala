@@ -28,14 +28,13 @@ abstract class PlayFunSpec
 
   lazy val lang = Lang("ja")
 
-  def prepareGetRequest[T](fakeRequest: FakeRequest[T]): FakeRequest[T] =
+  def addAcceptLanguage[T](fakeRequest: FakeRequest[T]): FakeRequest[T] =
     fakeRequest.withHeaders(ACCEPT_LANGUAGE -> lang.code)
 
-  def preparePostRequest[T](fakeRequest: FakeRequest[T]): FakeRequest[T] = {
+  def addCsrfToken[T](fakeRequest: FakeRequest[T]): FakeRequest[T] = {
     val csrfToken = tokenProvider.generateToken
     fakeRequest
       .withHeaders(
-        ACCEPT_LANGUAGE       -> lang.code,
         csrfConfig.headerName -> csrfToken
       )
       .copyFakeRequest(
