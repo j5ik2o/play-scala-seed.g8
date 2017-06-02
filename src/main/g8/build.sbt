@@ -18,8 +18,6 @@ scalacOptions ++= Seq(
   "-language:_",
   // Warn if an argument list is modified to match the receiver
   "-Ywarn-adapted-args",
-  // Warn when dead code is identified.
-  "-Ywarn-dead-code",
   // Warn about inaccessible types in method signatures.
   "-Ywarn-inaccessible",
   // Warn when a type argument is inferred to be `Any`.
